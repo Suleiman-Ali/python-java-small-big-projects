@@ -1,0 +1,59 @@
+from turtle import Turtle
+STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
+MOVE = 20
+UP = 90
+DOWN = 270
+RIGHT = 0
+LEFT = 180
+
+
+class Snake:
+
+    def __init__(self):
+        self.myList = []
+        self.create_snake()
+        self.head = self.myList[0]
+
+    def create_snake(self):
+        for number in STARTING_POSITIONS:
+            self.add_to_list(number)
+
+    def move(self):
+        for number in range(len(self.myList) - 1, 0, -1):
+            new_x = self.myList[number - 1].xcor()
+            new_y = self.myList[number - 1].ycor()
+            self.myList[number].goto(new_x, new_y)
+        self.head.forward(MOVE)
+
+    def reset(self):
+        for s in self.myList:
+            s.goto(1000, 1000)
+        self.myList.clear()
+        self.create_snake()
+        self.head = self.myList[0]
+
+    def add_to_list(self, position):
+        new_snake = Turtle("square")
+        new_snake.color("White")
+        new_snake.penup()
+        new_snake.goto(position)
+        self.myList.append(new_snake)
+
+    def ex(self):
+        self.add_to_list(self.myList[-1].position())
+
+    def up(self):
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
+
+    def down(self):
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
+
+    def right(self):
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
+
+    def left(self):
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)

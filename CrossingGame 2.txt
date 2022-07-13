@@ -1,0 +1,31 @@
+from turtle import Turtle
+import scoreboard
+import car_manager
+
+STARTING_POSITION = (0, -280)
+MOVE_DISTANCE = 10
+FINISH_LINE_Y = 280
+
+
+class Player(Turtle):
+    def __init__(self):
+        super().__init__()
+        self.penup()
+        self.shape("turtle")
+        self.color("White")
+
+    def move(self):
+        return self.forward(MOVE_DISTANCE)
+
+    def position(self):
+        self.goto(STARTING_POSITION)
+        self.setheading(90)
+
+    def check_players_position(self):
+        if self.ycor() >= FINISH_LINE_Y:
+            scoreboard.SCORE += 1
+            car_manager.STARTING_MOVE_DISTANCE += 3
+            self.goto(STARTING_POSITION)
+            self.setheading(90)
+            return True
+

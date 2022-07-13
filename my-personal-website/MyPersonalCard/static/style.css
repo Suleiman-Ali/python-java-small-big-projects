@@ -1,0 +1,168 @@
+body {
+  color: #40514E;
+  margin: 0;
+  text-align: center;
+  font-family: 'Reggae One', serif;
+  background-color: #f8f5f1;
+
+}
+
+h1 {
+  font-size: 562.5%;
+  margin: 50px auto 0 auto;
+  font-family: 'Sacramento', cursive;
+  color: #66BFBF;
+}
+h2 {
+  font-family: 'Sofia', cursive;
+  font-size: 2.5rem;
+  color: #66BFBF;
+  font-weight: normal;
+}
+h3{
+  font-family: 'Sofia', cursive;
+  color:  #11999E;
+
+}
+.pro{
+  margin-top: 0;
+  text-decoration: underline;
+
+}
+.top-container{
+  background-color: #212121;
+  position: relative;
+  padding-top: 100px;
+
+}
+.top-cloud{
+  position: absolute;
+  right: 300px;
+  top: 50px;
+}
+.middle-container{
+    background-color: #f8f5f1;
+}
+
+.bottom-cloud{
+  position: absolute;
+  left: 300px;
+  bottom: 300px;
+}
+.skill-row{
+  width: 50%;
+  margin: 100px auto 100px auto;
+  text-align: left;
+  line-height: 2;
+    background-color: #f8f5f1;
+}
+.skills{
+    background-color: #f8f5f1;
+}
+.programmer-img{
+  width: 20%;
+  float: left;
+  margin-right: 30px;
+}
+.programmer-img:hover{
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.Communication{
+  width: 20%;
+  float: left;
+  margin-right: 30px;
+  background-color: #f8f5f1;
+
+}
+.Communication:hover{
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.hr{
+  border: dotted #5f939a 7px;
+  border-bottom: none;
+  width: 3%;
+  margin: 100px auto;
+    background-color: #f8f5f1;
+}
+.intro {
+  width: 30%;
+  margin: auto;
+}
+.my-img{
+  padding-top: 100px;
+}
+.my-img:hover{
+  -webkit-filter: blur(3px);
+	filter: blur(3px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+a {
+  color:  #11999E;
+  background: #66BFBF;
+  font-family: 'Sofia', cursive;
+  font-size: 25px;
+  margin: 10px 20px;
+  text-decoration: none;
+}
+a:hover{
+  color:  #EAF6F6;
+}
+.copy{
+  color: #EAF6F6;
+
+
+}
+.profile{
+  background-color: #f8f5f1;
+}
+.footer-link{
+  background-color: #393e46;
+}
+.mail-img{
+  width: 2%;
+
+
+}
+.mail-img:hover{
+  -webkit-filter: blur(3px);
+	filter: blur(3px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.bottom-container{
+  background-color: #393e46;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.mon:hover{
+  -webkit-filter: blur(3px);
+	filter: blur(3px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.bottom-cloud:hover{
+  -webkit-filter: blur(3px);
+	filter: blur(3px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.top-cloud:hover{
+  -webkit-filter: blur(3px);
+	filter: blur(3px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.last:hover{
+    -webkit-filter: blur(3px);
+	filter: blur(3px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+

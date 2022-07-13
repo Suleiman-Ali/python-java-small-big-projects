@@ -1,0 +1,56 @@
+from turtle import Turtle, Screen
+from tim import Tim
+from Ball import Ball
+import time
+from score import Score
+import turtle
+
+
+s = turtle.numinput("Number of Top score🤔", "Enter number of top score:")
+screen = Screen()
+screen.setup(height=600, width=800)
+screen.bgcolor("Black")
+screen.listen()
+screen.tracer(0)
+screen.title("☠ PONG ☠")
+r_paddle = Tim((350, 0), "White", "square")
+l_paddle = Tim((-350, 0), "White", "square")
+ball = Ball()
+score = Score()
+screen.onkey(r_paddle.go_up, "Up")
+screen.onkey(r_paddle.go_down, "Down")
+screen.onkey(l_paddle.go_up, "w")
+screen.onkey(l_paddle.go_down, "s")
+player_r = 0
+player_l = 0
+game_is_on = True
+
+while game_is_on:
+    time.sleep(ball.sp)
+    screen.update()
+    ball.move()
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce_y()
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
+        ball.bounce_x()
+    if ball.xcor() > 380:
+       ball.reset_position()
+       score.point_l()
+    if ball.xcor() < -380:
+        ball.reset_position()
+        score.point_r()
+    if score.r_score == s:
+        score.goto(0, 0)
+        game_is_on = False
+        score.color("Purple")
+        score.write(" Right side player has Won 🤩", align="center", font=("Arial", 40, "normal"))
+    if score.l_score == s:
+        score.goto(0, 0)
+        game_is_on = False
+        score.color("Purple")
+        score.write(" Left side player has Won 🤩", align="center", font=("Arial", 40, "normal"))
+
+
+
+
+screen.exitonclick()

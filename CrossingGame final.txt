@@ -1,0 +1,51 @@
+import time
+from turtle import Turtle, Screen
+from player import Player
+from car_manager import CarManager
+from scoreboard import Scoreboard
+import car_manager
+
+
+Cars = []
+screen = Screen()
+screen.bgcolor("Black")
+screen.setup(width=600, height=600)
+screen.tracer(0)
+player = Player()
+player.position()
+screen.listen()
+screen.onkey(player.move, "Up")
+car = CarManager()
+score = Scoreboard()
+game_over = Turtle()
+game_over.penup()
+game_over.hideturtle()
+game_over.color("Red")
+
+
+
+game_is_on = True
+while game_is_on:
+    time.sleep(0.1)
+    screen.update()
+    car.create_car()
+    car.move_increase()
+    if player.check_players_position():
+        score.clear()
+        score.point()
+    for c in car.all_cars:
+        if c.distance(player) < 20:
+            game_is_on = False
+            game_over.write(arg="Game Over 🤐", align="center", font=("Courier", 24, "normal"))
+
+
+
+screen.exitonclick()
+
+
+
+
+
+
+
+

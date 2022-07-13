@@ -1,0 +1,28 @@
+from tkinter import *
+def input_calc():
+   resul = float(float(input.get()) * 1.609344)
+   r = round(resul)
+   result["text"] = r
+# Window
+window = Tk()
+window.title("Miles to Km Converter.")
+window.minsize(width=300, height=150)
+# Label
+label = Label(text = "Is equal to:",font=("Times New Roman",15, "bold"))
+label.place(x=65, y=55)
+# Button
+button = Button(text="Calculate", command=input_calc)
+button.place(x=160, y=85)
+# Input
+input = Entry(width=8)
+input.place(x=150,y=30)
+#ْ Miles
+miles = Label(text="Miles",font=("Times New Roman",15, "bold"))
+miles.place(x=215,y=24)
+#ْ Km
+Km = Label(text="Km",font=("Times New Roman",14, "bold"))
+Km.place(x=230,y=55)
+#ْ num of Km
+result = Label(text=0,font=("Times New Roman",14, "bold"))
+result.place(x=180,y=55)
+window.mainloop()

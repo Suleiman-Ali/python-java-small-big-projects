@@ -1,0 +1,152 @@
+MENU = {
+    "espresso": {
+        "ingredients": {
+            "water": 50,
+            "coffee": 18,
+        },
+        "cost": 1.5,
+    },
+    "latte": {
+        "ingredients": {
+            "water": 200,
+            "milk": 150,
+            "coffee": 24,
+        },
+        "cost": 2.5,
+    },
+    "cappuccino": {
+        "ingredients": {
+            "water": 250,
+            "milk": 100,
+            "coffee": 24,
+        },
+        "cost": 3.0,
+    }
+}
+
+resources = {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+}
+
+
+def payment(quarter_payment, dimes_payment, nickel_payment, pennies_payment):
+
+    quarter = 0.25
+    dimes = 0.10
+    nickel = 0.5
+    pennies = 0.1
+
+    quarter_result = quarter_payment * quarter
+    dimes_result = dimes_payment * dimes
+    nickel_result = nickel_payment * nickel
+    pennies_result = pennies_payment * pennies
+    total = quarter_result + dimes_result + nickel_result + pennies_result
+    return total
+Money = 0
+machineOn = True
+logo = """_________         _____  _____                  _____                .__    .__
+\_   ___ \  _____/ ____\/ ____\____   ____     /     \ _____    ____ |  |__ |__| ____   ____
+/    \  \/ /  _ \   __\\   __\/ __ \_/ __ \   /  \ /  \\__  \ _/ ___\|  |  \|  |/    \_/ __ \
+\     \___(  <_> )  |   |  | \  ___/\  ___/  /    Y    \/ __ \\  \___|   Y  \  |   |  \  ___/
+ \______  /\____/|__|   |__|  \___  >\___  > \____|__  (____  /\___  >___|  /__|___|  /\___  >
+        \/                        \/     \/          \/     \/     \/     \/        \/     \/ """
+while machineOn:
+    print(logo)
+    drink_choice = input("What would you like? (espresso/latte/cappuccino):")
+    if drink_choice == "espresso":
+        if resources['water']  > MENU['espresso']['ingredients']['water']:
+            if resources['coffee'] > MENU['espresso']['ingredients']['coffee']:
+               quarters = int(input("Please enter quarters :"))
+               dimes = int(input("Please enter dimes :"))
+               nickels = int(input("Please enter nickel :"))
+               pennies = int(input("Please enter pennies :"))
+               total_result = payment(quarters, dimes, nickels, pennies)
+               if total_result > MENU['espresso']['cost']:
+                  print("Here is your coffee ☕ ")
+                  print(f"Here is change money -> {total_result - MENU['espresso']['cost'] }")
+                  resources['water'] -= 50
+                  resources['coffee'] -= 18
+                  Money += 1.5
+               elif total_result == MENU['espresso']['cost']:
+                  print("Here is your coffee ☕ ")
+                  resources['water'] -= 50
+                  resources['coffee'] -= 18
+                  Money += 1.5
+               else:
+                    print("Sorry that is not enough money !")
+                    machineOn = False
+        else:
+            print(f"Sorry there is no enough resources !")
+            machineOn = False
+
+    elif drink_choice == "latte":
+
+        if resources['water'] > MENU['latte']['ingredients']['water']:
+            if resources['coffee'] > MENU['latte']['ingredients']['coffee']:
+                if resources['milk'] > MENU['latte']['ingredients']['milk']:
+                    quarters = int(input("Please enter quarters :"))
+                    dimes = int(input("Please enter dimes :"))
+                    nickels = int(input("Please enter nickel :"))
+                    pennies = int(input("Please enter pennies :"))
+                    total_result = payment(quarters, dimes, nickels, pennies)
+                    if total_result > MENU['latte']['cost']:
+                        print("Here is your coffee ☕ ")
+                        print(f"Here is change money -> {total_result - MENU['latte']['cost']}")
+                        resources['water'] -= 200
+                        resources['milk'] -= 150
+                        resources['coffee'] -= 24
+                        Money += 2.5
+                    elif total_result == MENU['latte']['cost']:
+                        print("Here is your coffee ☕ ")
+                        resources['water'] -= 200
+                        resources['milk'] -= 150
+                        resources['coffee'] -= 24
+                        Money += 2.5
+
+                    else:
+                        print("Sorry that is not enough money !")
+                        machineOn = False
+        else:
+            print(f"Sorry there is no enough resources !")
+            machineOn = False
+
+    elif drink_choice == "cappuccino":
+        if resources['water'] > MENU['cappuccino']['ingredients']['water']:
+            if resources['coffee'] > MENU['cappuccino']['ingredients']['coffee']:
+                if resources['milk'] > MENU['cappuccino']['ingredients']['milk']:
+                    quarters = int(input("Please enter quarters :"))
+                    dimes = int(input("Please enter dimes :"))
+                    nickels = int(input("Please enter nickel :"))
+                    pennies = int(input("Please enter pennies :"))
+                    total_result = payment(quarters, dimes, nickels, pennies)
+                    if total_result > MENU['cappuccino']['cost']:
+                        print("Here is your coffee ☕ ")
+                        print(f"Here is change money -> {total_result - MENU['cappuccino']['cost']}")
+                        resources['water'] -= 250
+                        resources['milk'] -= 150
+                        resources['coffee'] -= 24
+                        Money += 3.0
+                    elif total_result == MENU['cappuccino']['cost']:
+                        print("Here is your coffee ☕ ")
+                        resources['water'] -= 250
+                        resources['milk'] -= 150
+                        resources['coffee'] -= 24
+                        Money += 3.0
+                    else:
+                        print("Sorry that is not enough money !")
+                        machineOn = False
+
+        else:
+            print(f"Sorry there is no enough resources !")
+            machineOn = False
+
+    elif drink_choice == "report":
+        resources["Money"] = Money
+        print(resources)
+
+    elif drink_choice == "off":
+        print("Machine turned off.")
+        machineOn = False
+
